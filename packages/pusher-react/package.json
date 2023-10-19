@@ -1,0 +1,49 @@
+{
+	"name": "@vivid-web/pusher-react",
+	"version": "0.0.0",
+	"description": "A React wrapper for Pusher",
+	"keywords": [
+		"react",
+		"pusher",
+		"wrapper",
+		"sockets"
+	],
+	"author": "petervmeijgaard",
+	"license": "MIT",
+	"types": "dist/index.d.ts",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"sideEffects": false,
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch"
+	},
+	"files": [
+		"dist"
+	],
+	"peerDependencies": {
+		"pusher-js": "^8.0.0",
+		"react": "^18.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.30",
+		"pusher-js": "^8.3.0",
+		"react": "^18.2.0",
+		"tsup": "^7.2.0",
+		"typescript": "^5.2.2"
+	}
+}
