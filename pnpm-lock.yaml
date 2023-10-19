@@ -42,7 +42,7 @@ importers:
   examples/basic:
     dependencies:
       '@vivid-web/pusher-react':
-        specifier: workspace:^
+        specifier: ^0.0.0
         version: link:../../packages/pusher-react
       pusher-js:
         specifier: ^8.3.0
