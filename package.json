@@ -11,11 +11,13 @@
 		"format": "prettier --check --cache --ignore-unknown \"**/*\"",
 		"commit": "git-cz",
 		"prepare": "husky install",
-		"postinstall": "manypkg check"
+		"postinstall": "manypkg check",
+		"version": "changeset version && pnpm install --no-frozen-lockfile && pnpm format --write"
 	},
 	"author": "Peter van Meijgaard <petervanmeijgaard@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"@changesets/cli": "^2.26.2",
 		"@commitlint/cli": "^17.8.0",
 		"@commitlint/config-conventional": "^17.8.0",
 		"@manypkg/cli": "^0.21.0",
