@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { usePusher } from "./use-pusher";
 
-export const usePusherChannel = (channelName: string) => {
+export const useChannel = (channelName: string) => {
 	const [channel, setChannel] = useState<Channel>();
 	const { client } = usePusher();
 

@@ -1,6 +1,6 @@
 import {
 	PusherProvider,
-	usePusherChannel,
+	useChannel,
 	usePusherEvent,
 } from "@vivid-web/pusher-react";
 import Pusher from "pusher-js";
@@ -28,7 +28,7 @@ function App() {
 function Posts() {
 	const [posts, setPosts] = useState<Array<Post>>([]);
 
-	const channel = usePusherChannel("posts-example");
+	const channel = useChannel("posts-example");
 
 	usePusherEvent(channel, "post-created", (post: Post) => {
 		setPosts((curr) => [...curr, post]);
