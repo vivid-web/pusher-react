@@ -1,5 +1,11 @@
 # @vivid-web/pusher-react
 
+## 0.1.1
+
+### Patch Changes
+
+- 36240be: Set JSX to react-jsx instead of preserve
+
 ## 0.1.0
 
 ### Minor Changes

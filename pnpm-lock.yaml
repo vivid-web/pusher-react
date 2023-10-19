@@ -45,7 +45,7 @@ importers:
   examples/basic:
     dependencies:
       '@vivid-web/pusher-react':
-        specifier: 0.1.0
+        specifier: 0.1.1
         version: link:../../packages/pusher-react
       pusher-js:
         specifier: ^8.3.0
