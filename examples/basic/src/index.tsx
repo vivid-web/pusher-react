@@ -1,8 +1,4 @@
-import {
-	PusherProvider,
-	useChannel,
-	usePusherEvent,
-} from "@vivid-web/pusher-react";
+import { PusherProvider, useChannel, useEvent } from "@vivid-web/pusher-react";
 import Pusher from "pusher-js";
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
@@ -30,11 +26,11 @@ function Posts() {
 
 	const channel = useChannel("posts-example");
 
-	usePusherEvent(channel, "post-created", (post: Post) => {
+	useEvent(channel, "post-created", (post: Post) => {
 		setPosts((curr) => [...curr, post]);
 	});
 
-	usePusherEvent(channel, "post-deleted", (post: Post) => {
+	useEvent(channel, "post-deleted", (post: Post) => {
 		setPosts((curr) => curr.filter((item) => item.id !== post.id));
 	});
 
