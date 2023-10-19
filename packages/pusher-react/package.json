@@ -30,7 +30,8 @@
 	"sideEffects": false,
 	"scripts": {
 		"build": "tsup",
-		"dev": "tsup --watch"
+		"dev": "tsup --watch",
+		"lint": "eslint --cache --report-unused-disable-directives ."
 	},
 	"files": [
 		"dist"
@@ -41,6 +42,8 @@
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.30",
+		"@vivid-web/eslint-config": "0.0.1",
+		"eslint": "^8.51.0",
 		"pusher-js": "^8.3.0",
 		"react": "^18.2.0",
 		"tsup": "^7.2.0",

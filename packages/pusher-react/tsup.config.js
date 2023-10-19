@@ -1,11 +1,11 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig(({ watch }) => ({
+	clean: !watch,
+	dts: true,
 	entry: ["src/*.ts"],
 	format: ["cjs", "esm"],
-	target: ["es2020", "node16"],
 	outDir: "dist",
-	dts: true,
 	sourcemap: false,
-	clean: !watch,
+	target: ["es2020", "node16"],
 }));

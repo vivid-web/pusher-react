@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, PropsWithChildren, useContext } from "react";
 import Pusher from "pusher-js";
+import { PropsWithChildren, createContext } from "react";
 
 export type PusherContextType = {
 	client: Pusher;

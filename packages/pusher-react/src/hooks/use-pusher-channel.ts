@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import { Channel } from "pusher-js";
+import { useEffect, useState } from "react";
+
 import { usePusher } from "./use-pusher";
 
 export const usePusherChannel = (channelName: string) => {
@@ -12,7 +13,7 @@ export const usePusherChannel = (channelName: string) => {
 		setChannel(_channel);
 
 		return () => client.unsubscribe(channelName);
-	}, [channelName]);
+	}, [channelName, client]);
 
 	return channel;
 };

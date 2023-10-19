@@ -2,13 +2,14 @@
 	"name": "@vivid-web/pusher-react-example-basic",
 	"private": true,
 	"main": "src/index.tsx",
+	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@vivid-web/pusher-react": "^0.0.0",
+		"@vivid-web/pusher-react": "0.0.0",
 		"pusher-js": "^8.3.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"

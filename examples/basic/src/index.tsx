@@ -8,13 +8,13 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 
 type Post = {
+	content: string;
 	id: number;
 	title: string;
-	content: string;
 };
 
-const client = new Pusher(import.meta.env.VITE_PUSHER_KEY, {
-	cluster: import.meta.env.VITE_PUSHER_CLUSTER,
+const client = new Pusher(import.meta.env.VITE_PUSHER_KEY as string, {
+	cluster: import.meta.env.VITE_PUSHER_CLUSTER as string,
 });
 
 function App() {
@@ -53,4 +53,7 @@ function Posts() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.createRoot(rootElement!).render(<App />);
+
+if (rootElement) {
+	ReactDOM.createRoot(rootElement).render(<App />);
+}

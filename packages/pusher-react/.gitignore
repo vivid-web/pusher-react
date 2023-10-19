@@ -1,3 +1,4 @@
 .turbo
+.eslintcache
 dist
 node_modules

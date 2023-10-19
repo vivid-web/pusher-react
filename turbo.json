@@ -4,6 +4,12 @@
 		"build": {
 			"outputs": ["dist/**"]
 		},
+		"lint": {
+			"outputMode": "new-only"
+		},
+		"typecheck": {
+			"outputMode": "new-only"
+		},
 		"dev": {
 			"cache": false,
 			"persistent": true
