@@ -1,3 +1,5 @@
+"use client";
+
 import { Channel } from "pusher-js";
 import { useEffect, useState } from "react";
 

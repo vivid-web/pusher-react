@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext } from "react";
 
 import { PusherContext, PusherContextType } from "../context/pusher-context";
