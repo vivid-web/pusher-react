@@ -1,5 +1,11 @@
 # @vivid-web/pusher-react
 
+## 0.1.3
+
+### Patch Changes
+
+- 7ff5e1d: Mark all files with `"use client"` for React Server Components
+
 ## 0.1.2
 
 ### Patch Changes
