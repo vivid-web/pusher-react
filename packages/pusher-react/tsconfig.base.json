@@ -7,7 +7,6 @@
 		"skipLibCheck": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
 		"esModuleInterop": true,
 		"module": "esnext",
 		"moduleResolution": "node",
@@ -17,6 +16,6 @@
 		"noUncheckedIndexedAccess": true,
 		"sourceMap": true
 	},
-	"include": ["**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
-	"exclude": ["node_modules", "dist"]
+	"include": ["./src/**/*"],
+	"exclude": ["./node_modules", "./dist"]
 }

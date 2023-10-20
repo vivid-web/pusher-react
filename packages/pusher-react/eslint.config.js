@@ -9,7 +9,7 @@ const config = [
 		files: ["**/*.{ts,tsx}"],
 		languageOptions: {
 			parserOptions: {
-				project: "./tsconfig.eslint.json",
+				project: "./tsconfig.base.json",
 			},
 		},
 	},

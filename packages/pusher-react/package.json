@@ -10,32 +10,40 @@
 	],
 	"author": "petervmeijgaard",
 	"license": "MIT",
-	"types": "dist/index.d.ts",
-	"main": "dist/index.cjs",
-	"module": "dist/index.js",
+	"types": "dist/types/index.d.ts",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
 	"type": "module",
 	"exports": {
 		".": {
 			"import": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/esm/index.js"
 			},
 			"require": {
-				"types": "./dist/index.d.cts",
-				"default": "./dist/index.cjs"
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/cjs/index.js"
 			}
 		},
 		"./package.json": "./package.json"
 	},
 	"sideEffects": false,
 	"scripts": {
-		"build": "tsup",
-		"dev": "tsup --watch",
+		"build": "pnpm run clean && run-p build:esm build:cjs build:types",
+		"build:esm": "tsc --project tsconfig.esm.json",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+		"build:types": "tsc --project tsconfig.types.json",
+		"dev": "pnpm run clean && run-p dev:esm dev:cjs dev:types",
+		"dev:esm": "tsc --watch --project tsconfig.esm.json",
+		"dev:cjs": "tsc --watch --project tsconfig.cjs.json",
+		"dev:types": "tsc --watch --project tsconfig.types.json",
+		"clean": "rimraf ./dist",
 		"lint": "eslint --cache --report-unused-disable-directives .",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit -p tsconfig.base.json"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"src"
 	],
 	"peerDependencies": {
 		"pusher-js": "^8.0.0",
@@ -45,9 +53,10 @@
 		"@types/react": "^18.2.30",
 		"@vivid-web/eslint-config": "0.0.0",
 		"eslint": "^8.51.0",
+		"npm-run-all": "^4.1.5",
 		"pusher-js": "^8.3.0",
 		"react": "^18.2.0",
-		"tsup": "^7.2.0",
+		"rimraf": "^5.0.5",
 		"typescript": "^5.2.2"
 	}
 }
