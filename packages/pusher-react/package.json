@@ -46,7 +46,7 @@
 		"src"
 	],
 	"peerDependencies": {
-		"pusher-js": "^8.0.0",
+		"pusher-js": "^8.3.0",
 		"react": "^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
