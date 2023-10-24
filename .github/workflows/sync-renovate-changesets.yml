@@ -1,0 +1,33 @@
+name: Sync Renovate changeset
+on:
+  pull_request_target:
+    paths:
+      - ".github/workflows/sync-renovate-changesets.yml"
+      - "**/pnpm-lock.yaml"
+
+jobs:
+  generate-changeset:
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    if: github.actor == 'renovate[bot]' && github.repository == 'vivid-web/pusher-react'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.6.0
+        with:
+          fetch-depth: 2
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.email noreply@vivid-web.com
+          git config --global user.name 'Github changeset workflow'
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare
+
+      - name: Generate changeset
+        run: node ./scripts/generate-changeset.js
