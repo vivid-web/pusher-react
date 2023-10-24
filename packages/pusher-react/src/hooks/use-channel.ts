@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 
 import { usePusher } from "./use-pusher";
 
-export const useChannel = (channelName: string) => {
-	const [channel, setChannel] = useState<Channel>();
+export const useChannel = <T extends Channel>(channelName: string) => {
+	const [channel, setChannel] = useState<T>();
 	const { client } = usePusher();
 
 	useEffect(() => {
-		const _channel = client.subscribe(channelName);
+		const _channel = client.subscribe(channelName) as T;
 
 		setChannel(_channel);
 
