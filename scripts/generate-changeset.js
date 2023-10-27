@@ -2,24 +2,48 @@ import { $ } from "execa";
 import { promises as fs } from "fs";
 import * as path from "path";
 
+/**
+ * @return {Promise<string>}
+ */
 const getCurrentBranch = async () => {
 	const { stdout } = await $`git branch --show-current`;
 
 	return stdout;
 };
 
+/**
+ * @return {Promise<string[]>}
+ */
 const getChangedFiles = async () => {
 	const { stdout } = await $`git diff --name-only HEAD~1`;
 
 	return stdout.split("\n");
 };
 
+/**
+ * @param {string} file
+ * @return {Promise<string>}
+ */
+const getChangesFromFile = async (file) => {
+	const { stdout: changes } = await $`git show ${file}`;
+
+	return changes;
+};
+
+/**
+ * @return {Promise<string>}
+ */
 const getChangesetFileName = async () => {
 	const { stdout: shortHash } = await $`git rev-parse --short HEAD`;
 
 	return path.join(".changeset", `renovate-${shortHash.trim()}.md`);
 };
 
+/**
+ * @param {Promise<string[]>} accumulator
+ * @param {string} file
+ * @return {Promise<string[]>}
+ */
 const toPublicPackageNames = async (accumulator, file) => {
 	const packageList = await accumulator;
 
@@ -32,28 +56,37 @@ const toPublicPackageNames = async (accumulator, file) => {
 	return packageList;
 };
 
-const getBumps = async (files) => {
-	const bumps = new Map();
+/**
+ * @param {Promise<[string, string][]>} acc
+ * @param {string} file
+ * @return {Promise<[string, string][]>}
+ */
+const toPackageBump = async (acc, file) => {
+	const items = await acc;
 
-	for (const file of files) {
-		const { stdout: changes } = await $`git show ${file}`;
+	const changes = await getChangesFromFile(file);
 
-		for (const change of changes.split("\n")) {
-			// Check if change starts with a plus sign and a white space
-			if (!change.match(/^\+\s/)) {
-				continue;
-			}
+	const entries = changes
+		.split("\n")
+		.filter((change) => change.match(/^\+\s/))
+		.map((change) => {
+			const [pkg, bump] = change.match(/"(.*?)"/g);
 
-			const [packageName, version] = change.match(/"(.*?)"/g);
-			bumps.set(packageName.replace(/"/g, ""), version.replace(/"/g, ""));
-		}
-	}
+			return [pkg, bump];
+		})
+		.concat(items);
 
-	return bumps;
+	return [...new Set(entries)];
 };
 
+/**
+ * @param {string} fileName
+ * @param {[string, string][]} packageBumps
+ * @param {string[]} packages
+ * @return {Promise<void>}
+ */
 const createChangeset = async (fileName, packageBumps, packages) => {
-	const message = [...packageBumps].reduce((accumulator, [pkg, bump]) => {
+	const message = packageBumps.reduce((accumulator, [pkg, bump]) => {
 		const newLine = `Updated dependency \`${pkg}\` to \`${bump}\`.\n`;
 
 		return `${accumulator}${newLine}`;
@@ -65,8 +98,16 @@ const createChangeset = async (fileName, packageBumps, packages) => {
 	await fs.writeFile(fileName, body);
 };
 
+/**
+ * @param {string} file
+ * @return {boolean}
+ */
 const isChangesetFile = (file) => file.startsWith(".changeset");
 
+/**
+ * @param {string} file
+ * @return {boolean}
+ */
 const isPackageJsonFile = (file) => {
 	return file !== "package.json" && file.includes("package.json");
 };
@@ -100,14 +141,14 @@ const run = async () => {
 		return;
 	}
 
+	const packageBumps = await packageFiles.reduce(
+		toPackageBump,
+		Promise.resolve([]),
+	);
+
 	const changeSetFileName = await getChangesetFileName();
 
-	const packageBumps = await getBumps(packageFiles);
-	await createChangeset(
-		changeSetFileName,
-		packageBumps.entries(),
-		packageNames,
-	);
+	await createChangeset(changeSetFileName, packageBumps, packageNames);
 
 	await $`git add ${changeSetFileName}`;
 	await $`git commit -C HEAD --amend --no-edit`;
