@@ -19,8 +19,8 @@
 	"license": "MIT",
 	"dependencies": {
 		"@changesets/cli": "^2.26.2",
-		"@commitlint/cli": "^18.4.1",
-		"@commitlint/config-conventional": "^18.4.0",
+		"@commitlint/cli": "^18.6.1",
+		"@commitlint/config-conventional": "^18.6.3",
 		"@manypkg/cli": "^0.21.0",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
