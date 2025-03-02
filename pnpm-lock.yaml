@@ -27,8 +27,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0(@types/node@20.9.0)(typescript@5.2.2)
       cz-git:
-        specifier: ^1.7.1
-        version: 1.7.1
+        specifier: ^1.11.0
+        version: 1.11.0
       execa:
         specifier: ^8.0.1
         version: 8.0.1
@@ -2173,8 +2173,8 @@ packages:
       - typescript
     dev: false
 
-  /cz-git@1.7.1:
-    resolution: {integrity: sha512-NMe4REukCS7op1YA1jixRXOgII8Um2/Ii8TeyFEOISgp2ZzeobzkMOP8dXSrTQ3bvmm7YpPOdr2301yJkOJcbA==}
+  /cz-git@1.11.0:
+    resolution: {integrity: sha512-FCNkpyVmNPX0P8kHtX8uoFcXsJ4bjivMXVS5vc/qCyM8jj+Tuqo6CXQjGQKwKl0Lk9VNz7o6JfPoU/mM/XhxqA==}
     engines: {node: '>=v12.20.0'}
     dev: false
 
