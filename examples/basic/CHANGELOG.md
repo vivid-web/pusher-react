@@ -1,5 +1,19 @@
 # @vivid-web/pusher-react-example-basic
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [446d6eb]
+- Updated dependencies [6bff91a]
+- Updated dependencies [25912bc]
+- Updated dependencies [ddbc1f0]
+- Updated dependencies [ef69cda]
+- Updated dependencies [771d700]
+- Updated dependencies [f21cfad]
+- Updated dependencies [a11f672]
+  - @vivid-web/pusher-react@0.2.0
+
 ## 0.0.5
 
 ### Patch Changes
