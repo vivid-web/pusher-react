@@ -151,8 +151,8 @@ importers:
         specifier: ^5.0.2
         version: 5.0.2
       pusher-js:
-        specifier: ^8.3.0
-        version: 8.3.0
+        specifier: ^8.4.0
+        version: 8.4.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -4799,6 +4799,13 @@ packages:
     resolution: {integrity: sha512-6GohP06WlVeomAQQe9qWh1IDzd3+InluWt+ZUOcecVK1SEQkg6a8uYVsvxSJm7cbccfmHhE0jDkmhKIhue8vmA==}
     dependencies:
       tweetnacl: 1.0.3
+    dev: false
+
+  /pusher-js@8.4.0:
+    resolution: {integrity: sha512-wp3HqIIUc1GRyu1XrP6m2dgyE9MoCsXVsWNlohj0rjSkLf+a0jLvEyVubdg58oMk7bhjBWnFClgp8jfAa6Ak4Q==}
+    dependencies:
+      tweetnacl: 1.0.3
+    dev: true
 
   /quansync@0.2.6:
     resolution: {integrity: sha512-u3TuxVTuJtkTxKGk5oZ7K2/o+l0/cC6J8SOyaaSnrnroqvcVy7xBxtvBUyd+Xa8cGoCr87XmQj4NR6W+zbqH8w==}
