@@ -50,13 +50,13 @@
 		"react": "^17.0.0 || ^18.0.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.33",
+		"@types/react": "^18.3.28",
 		"@vivid-web/eslint-config": "0.0.0",
-		"eslint": "^8.53.0",
+		"eslint": "^8.57.1",
 		"npm-run-all2": "^5.0.2",
-		"pusher-js": "^8.3.0",
-		"react": "^18.2.0",
+		"pusher-js": "^8.4.0",
+		"react": "^18.3.1",
 		"rimraf": "^5.0.10",
-		"typescript": "^5.2.2"
+		"typescript": "^5.9.3"
 	}
 }
