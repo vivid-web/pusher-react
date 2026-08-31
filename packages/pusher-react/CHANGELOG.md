@@ -1,5 +1,22 @@
 # @vivid-web/pusher-react
 
+## 0.2.0
+
+### Minor Changes
+
+- 446d6eb: Add `usePresenceChannel` hook
+
+### Patch Changes
+
+- 6bff91a: Updated dependency `"npm-run-all2"` to `"^5.0.0"`.
+- 25912bc: Updated dependency `"rimraf"` to `"^5.0.10"`.
+- ddbc1f0: Updated dependency `"npm-run-all2"` to `"^5.0.2"`.
+- ef69cda: Updated dependency `"eslint"` to `"^8.53.0"`.
+  Updated dependency `"eslint"` to `"^8.53.0"`.
+- 771d700: Updated dependency `eslint` to `^8.52.0`.
+- f21cfad: Updated dependency `@types/react` to `^18.2.33`.
+- a11f672: Add prefix for private and presence channel hooks
+
 ## 0.1.3
 
 ### Patch Changes
