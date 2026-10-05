@@ -78,6 +78,9 @@ importers:
 
   packages/eslint-config:
     dependencies:
+      '@eslint-community/eslint-plugin-eslint-comments':
+        specifier: ^3.2.0
+        version: 3.2.1(eslint@8.57.1)
       '@eslint/eslintrc':
         specifier: ^2.1.4
         version: 2.1.4
@@ -102,9 +105,6 @@ importers:
       eslint-config-prettier:
         specifier: ^9.1.0
         version: 9.1.2(eslint@8.57.1)
-      eslint-plugin-eslint-comments:
-        specifier: ^3.2.0
-        version: 3.2.0(eslint@8.57.1)
       eslint-plugin-flowtype:
         specifier: ^8.0.3
         version: 8.0.3(@babel/plugin-syntax-flow@7.29.7)(@babel/plugin-transform-react-jsx@7.29.7)(eslint@8.57.1)
@@ -999,6 +999,17 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@eslint-community/eslint-plugin-eslint-comments@3.2.1(eslint@8.57.1):
+    resolution: {integrity: sha512-/HZbjIGaVO2zLlWX3gRgiHmKRVvvqrC0zVu3eXnIj1ORxoyfGSj50l0PfDfqihyZAqrDYzSMdJesXzFjvAoiLQ==}
+    engines: {node: '>=6.5.0'}
+    peerDependencies:
+      eslint: '>=4.19.1'
+    dependencies:
+      escape-string-regexp: 1.0.5
+      eslint: 8.57.1
+      ignore: 5.3.2
+    dev: false
 
   /@eslint-community/eslint-utils@4.10.1(eslint@8.57.1):
     resolution: {integrity: sha512-cuadcxVFE8sDK6iWJbs8Sn0av2Nrh2QSGQhVlBW9AaAHqHwjWsZHT8LJ4hFGPh7ASBV2deFdM7H/DPjulmh8rg==}
@@ -3044,17 +3055,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-eslint-comments@3.2.0(eslint@8.57.1):
-    resolution: {integrity: sha512-0jkOl0hfojIHHmEHgmNdqv4fmh7300NdpA9FFpF7zaoLvB/QeXOGNLIo86oAveJFrfB1p05kC8hpEMHM8DwWVQ==}
-    engines: {node: '>=6.5.0'}
-    peerDependencies:
-      eslint: '>=4.19.1'
-    dependencies:
-      escape-string-regexp: 1.0.5
-      eslint: 8.57.1
-      ignore: 5.3.2
-    dev: false
-
   /eslint-plugin-flowtype@8.0.3(@babel/plugin-syntax-flow@7.29.7)(@babel/plugin-transform-react-jsx@7.29.7)(eslint@8.57.1):
     resolution: {integrity: sha512-dX8l6qUL6O+fYPtpNRideCFSpmWOUVx5QcaGLVqe/vlDiBSe4vYljDWDETwnyFzpl7By/WVIu6rcrniCgH9BqQ==}
     engines: {node: '>=12.0.0'}
@@ -3455,6 +3455,7 @@ packages:
 
   /fast-uri@3.1.6:
     resolution: {integrity: sha512-7Ical1vFEMr0onbVzEDIreM22I4khW+fzyQPwvAFWBp1iwdshSZRsL4jjRvPG9JP1uiqMHRto+YU6R2/CzDz5Q==}
+    requiresBuild: true
     dev: false
 
   /fastq@1.20.3:
@@ -4407,6 +4408,7 @@ packages:
 
   /json-schema-traverse@1.0.0:
     resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
+    requiresBuild: true
     dev: false
 
   /json-stable-stringify-without-jsonify@1.0.1:
@@ -5361,6 +5363,7 @@ packages:
   /require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dev: false
 
   /resolve-alpn@1.2.1:
