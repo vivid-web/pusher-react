@@ -1,6 +1,6 @@
 {
 	"name": "@vivid-web/pusher-react",
-	"version": "0.1.3",
+	"version": "0.2.0",
 	"description": "A React wrapper for Pusher",
 	"keywords": [
 		"react",
